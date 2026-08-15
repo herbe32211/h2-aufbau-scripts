@@ -1,0 +1,22 @@
+id: A2-digest
+name: Research-Digest
+profil: researcher
+trigger: cron, Di + Fr 07:00
+eingaenge:
+  - quelle: web-search, RSS, Reach-Reader (cookiefrei)
+    trust: untrusted
+    filter: Container-Backend, forward_env leer, Internet-only
+datenklasse: frei
+modell: minimax-m3
+fallback: kimi-k3
+ausgabe: >
+  Dossier nach workspace/vault/Dossiers/; Discord #digest meldet
+  nur den Pfad.   # ANNAHME — pruefen: liest du im Kanal statt im Vault?
+handoff: Validator prueft Schema + flaggt anweisungsartige Passagen
+budget: 2 Laeufe/Woche, Quota-Verbrauch Woche 1 messen (E9)
+erfolgssignal: >
+  Mindestens 1 Dossier pro Monat wird in einer anderen Aufgabe
+  oder Entscheidung real herangezogen.
+abbruch: >
+  Nach 4 Wochen kein Dossier wiederverwendet -> Frequenz halbieren,
+  danach raus.

@@ -1,0 +1,25 @@
+id: A1-briefing
+name: Morgen-Briefing
+profil: assist
+trigger: cron, werktags 06:30
+eingaenge:
+  - quelle: kalender (read-only)
+    trust: untrusted
+    filter: Ingest-Skript, nur Titel/Zeit/Ort, kein Freitext (S4)
+  - quelle: healthchecks-status
+    trust: untrusted
+    filter: nur Statusfeld, kein Meldungstext
+  - quelle: wetter-api
+    trust: semi-trusted
+    filter: nur Felder, kein Freitext
+datenklasse: intern
+modell: gpt-oss:120b-cloud
+fallback: gemma4:31b
+ausgabe: Discord #briefing, Struktur "Wichtigstes zuerst"
+budget: 1 Lauf/Tag, Ziel <8k Token
+erfolgssignal: >
+  An 4 von 5 Werktagen gelesen, bevor Kalender oder healthchecks
+  selbst geoeffnet werden.
+abbruch: >
+  Nach 3 Wochen weiter zuerst zu den Originalquellen gegriffen
+  -> Aufgabe raus, nicht nachbessern.

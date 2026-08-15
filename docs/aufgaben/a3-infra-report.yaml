@@ -1,0 +1,24 @@
+id: A3-infra-report
+name: Wochen-Infra-Report
+profil: assist
+trigger: cron, sonntags 18:00
+eingaenge:
+  - quelle: lvmthin-Fuellstand, Reboot-Pending, Snapshot-Liste
+    trust: trusted
+    filter: eigene Skripte, feste Felder
+  - quelle: rclone check / Backup-Verify
+    trust: trusted
+    filter: nur Exit-Code + Zaehler
+  - quelle: log.jsonl (Token/Kosten)
+    trust: trusted
+    filter: Aggregation, kein Volltext
+datenklasse: intern
+modell: gpt-oss:120b-cloud
+fallback: gemma4:31b
+ausgabe: Discord #status, plus Ablage in workspace/vault/Reports/
+budget: 1 Lauf/Woche
+erfolgssignal: >
+  Mindestens 1 Befund pro Monat, der ohne den Report unbemerkt
+  geblieben waere.
+abbruch: >
+  Zwei Monate ohne Befund -> auf monatlich reduzieren.

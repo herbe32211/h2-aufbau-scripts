@@ -1,0 +1,21 @@
+id: A6-repurposing
+name: Content-/Doku-Repurposing
+profil: coder    # Zielprofil; bis zum Split laeuft es unter assist
+trigger: >
+  anlassbezogen, manuell in #projekt-<name>.   # ANNAHME — kein Cron,
+  weil ein Wochenlauf ohne fertigen Input leerlaeuft
+eingaenge:
+  - quelle: eigene Chronik / Notizen aus dem Vault
+    trust: trusted
+    filter: keiner noetig
+datenklasse: intern
+modell: glm-5.1
+fallback: kimi-k3
+ausgabe: Entwurf nach workspace/vault/Projekte/<name>/
+budget: pro Anlass, schweres Modell explizit
+erfolgssignal: >
+  Mindestens 1 Entwurf pro Monat wird nach Ueberarbeitung
+  tatsaechlich verwendet.
+abbruch: >
+  6 Wochen ohne verwendeten Entwurf -> raus. Deckt sich mit der
+  Kill-Criteria-Zeile aus §1.

@@ -1,0 +1,20 @@
+id: A5-logging
+name: Logging per Discord-Nachricht
+profil: assist
+trigger: eingehende Nachricht in #log
+eingaenge:
+  - quelle: eigene Discord-Nachricht
+    trust: trusted (Allowlist fail-closed auf eigene User-ID)
+    filter: keiner noetig
+datenklasse: intern
+modell: gpt-oss:120b-cloud
+fallback: gemma4:31b
+ausgabe: >
+  Einsortiert nach workspace/vault/ (Chronik oder Projektordner),
+  Bestaetigung mit Pfad im Kanal
+budget: laufend, sehr guenstig
+erfolgssignal: >
+  Mindestens 3 Eintraege pro Woche ueber 4 Wochen — der Weg ist
+  bequemer als selbst zu tippen.
+abbruch: >
+  Unter 1 Eintrag/Woche -> Kanal schliessen.
