@@ -1,0 +1,7 @@
+# shellcheck-Konfiguration für dieses Repo.
+#
+# Die Module sourcen lib/common.sh über einen relativen Pfad, der zur Laufzeit
+# aus BASH_SOURCE aufgelöst wird. Ohne diese beiden Zeilen kann shellcheck dem
+# nicht folgen und meldet SC1091.
+source-path=SCRIPTDIR
+external-sources=true

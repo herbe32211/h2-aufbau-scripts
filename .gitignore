@@ -1,0 +1,10 @@
+# Reale Konfiguration niemals versionieren — versioniert wird nur
+# config.env.example.
+/config.env
+
+# Backups, die die Module auf der VM anlegen
+*.bak-*
+
+# Editor-/OS-Kram
+*.swp
+.DS_Store

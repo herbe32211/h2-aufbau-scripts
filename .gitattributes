@@ -1,0 +1,8 @@
+# LF erzwingen. Ohne das baut Git beim Checkout unter Windows CRLF ein und die
+# Scripts sterben auf der VM mit "\r: command not found".
+* text=auto eol=lf
+
+*.sh    text eol=lf
+*.md    text eol=lf
+*.env   text eol=lf
+run.sh  text eol=lf
